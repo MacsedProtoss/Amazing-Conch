@@ -35,9 +35,9 @@ class SettingVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }()
     
     let topButton : UIButton = {
-        let button = UIButton()
-        button.setTitle("<", for: .normal)//TODO 等待切图后获取素材改成 图片
-        button.setTitleColor(UIColor.white, for: .normal)
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "返回"), for: .normal)
+        button.addTarget(self, action: #selector(backTouch), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -58,29 +58,13 @@ class SettingVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return table
     }()
     
-    let midViewLayer : UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.clear
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    let accountLabel : UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.init(name: "PingFang-SC-Medium", size: 16.7)
-        label.textColor = UIColor.black
-        label.backgroundColor = UIColor.clear
-        label.text = "账号与安全"
-        return label
-    }()
-    
-    let accountImage : UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = UIColor.clear
-        //image.image = //TODO
-        return image
+    let accountTable : UITableView = {
+        let table = UITableView()
+        table.backgroundColor = UIColor.white
+        table.rowHeight = 61
+        table.isScrollEnabled = false
+        table.translatesAutoresizingMaskIntoConstraints = false
+        return table
     }()
     
     let quitAccountButton : UIButton = {
@@ -102,13 +86,14 @@ class SettingVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         view.addSubview(topViewLayer)
         view.addSubview(backgroundView)
         self.tableView.register(settingCell.self, forCellReuseIdentifier: "SettingCell")
+        self.accountTable.register(PersonInfoCell.self, forCellReuseIdentifier: "PersonInfoCell")
         tableView.delegate = self
         tableView.dataSource = self
-        view.addSubview(tableView)
-        midViewLayer.addSubview(accountLabel)
-        midViewLayer.addSubview(accountImage)
-        view.addSubview(midViewLayer)
-        view.addSubview(quitAccountButton)
+        accountTable.delegate = self
+        accountTable.dataSource = self
+        backgroundView.addSubview(tableView)
+        backgroundView.addSubview(accountTable)
+        backgroundView.addSubview(quitAccountButton)
         
         topLabel.centerXAnchor.constraint(equalTo: topViewLayer.centerXAnchor).isActive = true
         topLabel.centerYAnchor.constraint(equalTo: topViewLayer.centerYAnchor).isActive = true
@@ -135,34 +120,30 @@ class SettingVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 19).isActive = true
         tableView.heightAnchor.constraint(equalToConstant: 183).isActive = true
         
-        accountLabel.leadingAnchor.constraint(equalTo: midViewLayer.leadingAnchor, constant: 22).isActive = true
-        accountLabel.centerYAnchor.constraint(equalTo: midViewLayer.centerYAnchor).isActive = true
-        accountLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        accountLabel.widthAnchor.constraint(equalToConstant: 84).isActive = true
-        
-        accountImage.trailingAnchor.constraint(equalTo: midViewLayer.trailingAnchor, constant: -25).isActive = true
-        accountImage.centerYAnchor.constraint(equalTo: midViewLayer.centerYAnchor).isActive = true
-        accountImage.heightAnchor.constraint(equalToConstant: 13).isActive = true
-        accountImage.widthAnchor.constraint(equalToConstant: 8).isActive = true
-        
-        midViewLayer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        midViewLayer.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        midViewLayer.heightAnchor.constraint(equalToConstant: 61).isActive = true
-        midViewLayer.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 20).isActive = true
+        accountTable.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        accountTable.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        accountTable.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 20).isActive = true
+        accountTable.heightAnchor.constraint(equalToConstant: 61).isActive = true
         
         quitAccountButton.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         quitAccountButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        quitAccountButton.topAnchor.constraint(equalTo: midViewLayer.bottomAnchor, constant: 19).isActive = true
+        quitAccountButton.topAnchor.constraint(equalTo: accountTable.bottomAnchor, constant: 19).isActive = true
         quitAccountButton.heightAnchor.constraint(equalToConstant: 61).isActive = true
         
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingCell") as! settingCell
-        cell.mainLabel.text = mainLabelArray[indexPath.row]
-        cell.subLabel.text = subLabelArray[indexPath.row]
-        return cell
+        if tableView != accountTable {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SettingCell") as! settingCell
+            cell.mainLabel.text = mainLabelArray[indexPath.row]
+            cell.subLabel.text = subLabelArray[indexPath.row]
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PersonInfoCell")as! PersonInfoCell
+            cell.mainLabel.text = "账号与安全"
+            return cell
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -170,11 +151,23 @@ class SettingVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if tableView == accountTable {
+            return 1
+        }else{
+            return 3
+        }
+       
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    @objc func backTouch(){
+        let settingVC = MainTabBarController()
+        settingVC.selectedIndex = 2
+        self.present(settingVC, animated: true,completion: nil)
+    }
+    
 }
 

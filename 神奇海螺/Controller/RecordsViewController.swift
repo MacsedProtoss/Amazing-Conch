@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecordsVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class RecordsVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITextFieldDelegate {
     //TODO this
     
     
@@ -53,7 +53,7 @@ class RecordsVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
         let searchImage = UIImageView()
         searchImage.image = UIImage(named: "ios-search")
         searchImage.translatesAutoresizingMaskIntoConstraints = false
-        searchImage.widthAnchor.constraint(equalToConstant: 18).isActive = true
+        searchImage.widthAnchor.constraint(equalToConstant: 42).isActive = true
         searchImage.heightAnchor.constraint(equalToConstant: 18).isActive = true
         textField.leftView = searchImage
         textField.leftViewMode = .always
@@ -92,6 +92,7 @@ class RecordsVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
         mainViewLayer.register(RecordsCell.self, forCellWithReuseIdentifier: "RecordsCell")
         mainViewLayer.delegate = self
         mainViewLayer.dataSource = self
+        searchBar.delegate = self
         
         topLabel.centerXAnchor.constraint(equalTo: topViewLayer.centerXAnchor).isActive = true
         topLabel.widthAnchor.constraint(equalToConstant: 40).isActive = true
@@ -144,5 +145,10 @@ class RecordsVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
         return 13.0
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        //TODO
+        return true
+    }
     
 }
