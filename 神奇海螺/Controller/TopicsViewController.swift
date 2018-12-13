@@ -66,7 +66,7 @@ class TopicsVC: UIViewController,UITextFieldDelegate {
     let askButtonLayer : UIImageView = {
         let imgView = UIImageView()
         imgView.image = UIImage(named: "椭圆 泛光")
-        imgView.isUserInteractionEnabled = false
+        imgView.isUserInteractionEnabled = true
         imgView.translatesAutoresizingMaskIntoConstraints = false
         return imgView
     }()
@@ -83,7 +83,8 @@ class TopicsVC: UIViewController,UITextFieldDelegate {
     let askLabel : UILabel = {
         let label = UILabel()
         label.text = "问"
-        label.font = UIFont.init(name: "PingFang-SC-Bold", size: 36.7)
+        label.font = UIFont.init(name: "PingFang-SC-Medium", size: 36.7)
+        label.textAlignment = .center
         label.textColor = UIColor.white
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -97,10 +98,10 @@ class TopicsVC: UIViewController,UITextFieldDelegate {
         searchBar.delegate = self
         view.addSubview(switcherLayer)
         view.addSubview(mainLayer)
+//      view.addSubview(askButton)
         mainLayer.addSubview(askButtonLayer)
         askButtonLayer.addSubview(askButton)
         askButton.addSubview(askLabel)
-        
         topViewLayer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         topViewLayer.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         topViewLayer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -138,7 +139,7 @@ class TopicsVC: UIViewController,UITextFieldDelegate {
         
         askLabel.centerXAnchor.constraint(equalTo: askButton.centerXAnchor).isActive = true
         askLabel.centerYAnchor.constraint(equalTo: askButton.centerYAnchor).isActive = true
-        askLabel.widthAnchor.constraint(equalToConstant: 31).isActive = true
+        askLabel.widthAnchor.constraint(equalToConstant: 35).isActive = true
         askLabel.heightAnchor.constraint(equalToConstant: 35).isActive = true
         
     }
