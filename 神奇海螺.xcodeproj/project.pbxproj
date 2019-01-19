@@ -15,12 +15,18 @@
 		4B2FFF5F21BA6C8A00EBDFE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B2FFF5D21BA6C8A00EBDFE4 /* LaunchScreen.storyboard */; };
 		4B2FFF6A21BA6C8A00EBDFE4 /* ____Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2FFF6921BA6C8A00EBDFE4 /* ____Tests.swift */; };
 		4B2FFF7521BA6C8A00EBDFE4 /* ____UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2FFF7421BA6C8A00EBDFE4 /* ____UITests.swift */; };
+		4B3ECF8221F17D2100992827 /* BookMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3ECF8121F17D2100992827 /* BookMarkCell.swift */; };
 		4B74218F21BE878E00DFEFDA /* PersonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B74218E21BE878E00DFEFDA /* PersonInfoViewController.swift */; };
 		4B74219121BE8A2B00DFEFDA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B74219021BE8A2B00DFEFDA /* MainTabBarController.swift */; };
 		4B74219321BE8ADD00DFEFDA /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B74219221BE8ADD00DFEFDA /* TopicsViewController.swift */; };
 		4B74219521BE8B5300DFEFDA /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B74219421BE8B5300DFEFDA /* RecordsViewController.swift */; };
 		4B74219721BEB10700DFEFDA /* RecordsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B74219621BEB10700DFEFDA /* RecordsCell.swift */; };
 		4B9705CF21C2733E00286D8E /* PersonInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9705CE21C2733E00286D8E /* PersonInfoCell.swift */; };
+		4B9F077C21C50F62009EB4FB /* TopicsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F077B21C50F62009EB4FB /* TopicsCell.swift */; };
+		4BE4D86921F0C89400537883 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4D86821F0C89400537883 /* MessageViewController.swift */; };
+		4BE4D86B21F0C92400537883 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE4D86A21F0C92400537883 /* MessageCell.swift */; };
+		4BEE75A721D4C7F90097365F /* AskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEE75A621D4C7F90097365F /* AskViewController.swift */; };
+		4BEEDD1921C3AC9400401C55 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEEDD1821C3AC9400401C55 /* BookmarkViewController.swift */; };
 		4BF8064F21BB8B7C00C573A6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8064E21BB8B7C00C573A6 /* SettingViewController.swift */; };
 		4BF8065221BB904D00C573A6 /* PublicStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8065121BB904D00C573A6 /* PublicStuff.swift */; };
 		4BF8065421BB928400C573A6 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8065321BB928400C573A6 /* SettingCell.swift */; };
@@ -58,12 +64,18 @@
 		4B2FFF7021BA6C8A00EBDFE4 /* 神奇海螺UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "神奇海螺UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B2FFF7421BA6C8A00EBDFE4 /* ____UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "____UITests.swift"; sourceTree = "<group>"; };
 		4B2FFF7621BA6C8A00EBDFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B3ECF8121F17D2100992827 /* BookMarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkCell.swift; sourceTree = "<group>"; };
 		4B74218E21BE878E00DFEFDA /* PersonInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoViewController.swift; sourceTree = "<group>"; };
 		4B74219021BE8A2B00DFEFDA /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		4B74219221BE8ADD00DFEFDA /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		4B74219421BE8B5300DFEFDA /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		4B74219621BEB10700DFEFDA /* RecordsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsCell.swift; sourceTree = "<group>"; };
 		4B9705CE21C2733E00286D8E /* PersonInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoCell.swift; sourceTree = "<group>"; };
+		4B9F077B21C50F62009EB4FB /* TopicsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsCell.swift; sourceTree = "<group>"; };
+		4BE4D86821F0C89400537883 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		4BE4D86A21F0C92400537883 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		4BEE75A621D4C7F90097365F /* AskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskViewController.swift; sourceTree = "<group>"; };
+		4BEEDD1821C3AC9400401C55 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		4BF8064E21BB8B7C00C573A6 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4BF8065121BB904D00C573A6 /* PublicStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicStuff.swift; sourceTree = "<group>"; };
 		4BF8065321BB928400C573A6 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -159,6 +171,9 @@
 				4BF8065321BB928400C573A6 /* SettingCell.swift */,
 				4B74219621BEB10700DFEFDA /* RecordsCell.swift */,
 				4B9705CE21C2733E00286D8E /* PersonInfoCell.swift */,
+				4B9F077B21C50F62009EB4FB /* TopicsCell.swift */,
+				4BE4D86A21F0C92400537883 /* MessageCell.swift */,
+				4B3ECF8121F17D2100992827 /* BookMarkCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,6 +187,9 @@
 				4B74218E21BE878E00DFEFDA /* PersonInfoViewController.swift */,
 				4B74219221BE8ADD00DFEFDA /* TopicsViewController.swift */,
 				4B74219421BE8B5300DFEFDA /* RecordsViewController.swift */,
+				4BEEDD1821C3AC9400401C55 /* BookmarkViewController.swift */,
+				4BEE75A621D4C7F90097365F /* AskViewController.swift */,
+				4BE4D86821F0C89400537883 /* MessageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -321,15 +339,21 @@
 				4BF8065421BB928400C573A6 /* SettingCell.swift in Sources */,
 				4B74219721BEB10700DFEFDA /* RecordsCell.swift in Sources */,
 				4B2FFF5421BA6C8900EBDFE4 /* ViewController.swift in Sources */,
+				4BEE75A721D4C7F90097365F /* AskViewController.swift in Sources */,
 				4B74219121BE8A2B00DFEFDA /* MainTabBarController.swift in Sources */,
 				4B2FFF5A21BA6C8900EBDFE4 /* ____.xcdatamodeld in Sources */,
 				4B2FFF5221BA6C8900EBDFE4 /* AppDelegate.swift in Sources */,
 				4B74219321BE8ADD00DFEFDA /* TopicsViewController.swift in Sources */,
 				4BF8065221BB904D00C573A6 /* PublicStuff.swift in Sources */,
 				4B74218F21BE878E00DFEFDA /* PersonInfoViewController.swift in Sources */,
+				4BE4D86921F0C89400537883 /* MessageViewController.swift in Sources */,
+				4BEEDD1921C3AC9400401C55 /* BookmarkViewController.swift in Sources */,
 				4B9705CF21C2733E00286D8E /* PersonInfoCell.swift in Sources */,
+				4BE4D86B21F0C92400537883 /* MessageCell.swift in Sources */,
 				4BF8064F21BB8B7C00C573A6 /* SettingViewController.swift in Sources */,
+				4B3ECF8221F17D2100992827 /* BookMarkCell.swift in Sources */,
 				4B74219521BE8B5300DFEFDA /* RecordsViewController.swift in Sources */,
+				4B9F077C21C50F62009EB4FB /* TopicsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
