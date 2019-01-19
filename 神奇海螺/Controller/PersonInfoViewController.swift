@@ -34,6 +34,8 @@ class PersonInfoVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = OrangeColor
@@ -67,7 +69,7 @@ class PersonInfoVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         label.backgroundColor = UIColor.clear
         label.text = "我"
         label.textAlignment = .center
-        label.font = UIFont.init(name: "PingFang-SC-Bold", size: 18.3)
+        label.font = UIFont.init(name: "PingFang-SC-Semibold", size: 18.3)
         label.textColor = UIColor.white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -84,6 +86,8 @@ class PersonInfoVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     let whiteCover : UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "椭圆 3")
+        image.layer.cornerRadius = 50
+        image.layer.masksToBounds = true
         image.backgroundColor = UIColor.clear
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -321,8 +325,16 @@ class PersonInfoVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)//TODO
+        if tableView == mainSettingTable {
+            if indexPath.row == 0 {
+                bookMarkTouch()
+            }
+        }
     }
     
-    
+    @objc func bookMarkTouch(){
+        let bookMarkVC = BookmarkVC()
+        self.present(bookMarkVC, animated: true,completion: nil)
+    }
     
 }

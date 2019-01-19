@@ -8,7 +8,8 @@
 
 import UIKit
 
-class TopicsVC: UIViewController,UITextFieldDelegate {
+class TopicsVC: UIViewController,UITextFieldDelegate,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = OrangeColor
@@ -26,7 +27,7 @@ class TopicsVC: UIViewController,UITextFieldDelegate {
         let textField = UITextField()
         textField.backgroundColor = UIColor.white
         textField.placeholder = "搜索话题"
-        textField.font = UIFont.init(name: "PingFang-SC-Bold", size: 16.7)
+        textField.font = UIFont.init(name: "PingFang-SC-Semibold", size: 16.7)
         textField.textColor = UIColor.init(red: 177/255, green: 177/255, blue: 177/255, alpha: 1.0)
         textField.tintColor = UIColor.black
         
@@ -91,6 +92,18 @@ class TopicsVC: UIViewController,UITextFieldDelegate {
         return label
     }()
     
+    let topicsCollectionView : UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collection.showsVerticalScrollIndicator = false
+        collection.showsHorizontalScrollIndicator = false
+        collection.isMultipleTouchEnabled = false
+        collection.backgroundColor = grayColor
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        return collection
+    }()
+    
     func setupViews(){
         view.addSubview(topViewLayer)
         topViewLayer.addSubview(searchBar)
@@ -99,9 +112,16 @@ class TopicsVC: UIViewController,UITextFieldDelegate {
         view.addSubview(switcherLayer)
         view.addSubview(mainLayer)
 //      view.addSubview(askButton)
-        mainLayer.addSubview(askButtonLayer)
+        
+        view.addSubview(topicsCollectionView)
+        topicsCollectionView.register(TopicsCell.self, forCellWithReuseIdentifier: "TopicsCell")
+        topicsCollectionView.delegate = self
+        topicsCollectionView.dataSource = self
+        
+        topicsCollectionView.addSubview(askButtonLayer)
         askButtonLayer.addSubview(askButton)
         askButton.addSubview(askLabel)
+        
         topViewLayer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         topViewLayer.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         topViewLayer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -142,6 +162,11 @@ class TopicsVC: UIViewController,UITextFieldDelegate {
         askLabel.widthAnchor.constraint(equalToConstant: 35).isActive = true
         askLabel.heightAnchor.constraint(equalToConstant: 35).isActive = true
         
+        topicsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        topicsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        topicsCollectionView.topAnchor.constraint(equalTo: switcherLayer.bottomAnchor, constant: 14).isActive = true
+        topicsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -151,7 +176,28 @@ class TopicsVC: UIViewController,UITextFieldDelegate {
     }
     
     @objc func askTouch(){
-        print("ask")
+        let askVC = AskViewController()
+        self.present(askVC, animated: true,completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5 //TODO
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopicsCell", for: indexPath) as! TopicsCell
+        //TODO
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 12.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width - 48
+        let height : CGFloat = 172
+        return CGSize(width: width, height: height)
     }
     
 }

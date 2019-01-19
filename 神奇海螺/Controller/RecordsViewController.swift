@@ -28,7 +28,7 @@ class RecordsVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
     let topLabel : UILabel = {
         let label = UILabel()
         label.text = "记录"
-        label.font = UIFont.init(name: "PingFang-SC-Bold", size: 16.7)
+        label.font = UIFont.init(name: "PingFang-SC-Semibold", size: 16.7)
         label.textColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +46,7 @@ class RecordsVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
         let textField = UITextField()
         textField.backgroundColor = UIColor.white
         textField.placeholder = "搜索记录"
-        textField.font = UIFont.init(name: "PingFang-SC-Bold", size: 16.7)
+        textField.font = UIFont.init(name: "PingFang-SC-Semibold", size: 16.7)
         textField.textColor = UIColor.init(red: 177/255, green: 177/255, blue: 177/255, alpha: 1.0)
         textField.tintColor = UIColor.black
         

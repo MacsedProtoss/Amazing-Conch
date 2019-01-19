@@ -28,7 +28,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         label.backgroundColor = UIColor.clear
         label.text = "设置"
         label.textAlignment = .center
-        label.font = UIFont.init(name: "PingFang-SC-Bold", size: 18.3)
+        label.font = UIFont.init(name: "PingFang-SC-Semibold", size: 18.3)
         label.textColor = UIColor.white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

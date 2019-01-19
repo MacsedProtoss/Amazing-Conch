@@ -15,6 +15,16 @@ class MainTabBarController: UITabBarController {
         setUpTabBar()
         setUpVC()
         self.selectedIndex = 0
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
+        
+        leftSwipe.direction = .left
+        rightSwipe.direction = .right
+        
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
+        
     }
     
     fileprivate func setUpTabBar(){
@@ -68,7 +78,20 @@ class MainTabBarController: UITabBarController {
     }
     
     
-    
+    @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
+        
+        if (sender.direction == .right) {
+            if (self.selectedIndex > 0) {
+                self.selectedIndex -= 1
+            }
+        }
+        
+        if (sender.direction == .left) {
+            if (self.selectedIndex < 2) {
+                self.selectedIndex += 1
+            }
+        }
+    }
     
     
     

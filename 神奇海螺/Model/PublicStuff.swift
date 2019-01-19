@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 let OrangeColor : UIColor = UIColor.init(displayP3Red: 255/255, green: 192/255, blue: 96/255, alpha: 1.0)
 let grayColor : UIColor = UIColor.init(red: 239/255, green: 239/256, blue: 244/255, alpha: 1.0)
